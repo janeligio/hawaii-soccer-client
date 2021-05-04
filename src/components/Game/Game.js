@@ -3,7 +3,7 @@ export default function Game(props) {
     const { dateCreated, name, venue, startTime, endTime, date, playerCount, notes } = props;
 
     return (
-    <div>
+    <div className="game">
         <h4>{venue}</h4>
         <p>Organizer: {name}</p>
         <p>

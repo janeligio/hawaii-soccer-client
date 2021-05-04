@@ -1,0 +1,59 @@
+header {
+    height: 100vh;
+    background: url("https://images.unsplash.com/photo-1598196333385-a2afddfafd67?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80")
+        no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    margin-top: 0;
+    border: 1px sold black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2em;
+    border-radius: 2%;
+    background: hsla(203, 16%, 56%, 0.5);
+    /* background: rgb(204, 204, 204); Fallback for older browsers without RGBA-support */
+    /* background: rgba(204, 204, 204, 0.5); */
+}
+
+.header.title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 3em;
+    margin: 0;
+    color: white;
+}
+/* For the title */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500&display=swap');
+
+a.header.link {
+    margin: 0 0.25em;
+    padding: 0.25em 0.5em;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}
+
+a.header.link:visited, a.header.link:hover {
+    text-decoration: none;
+}
+
+a.header.link:hover {
+    background: rgb(204, 204, 204); /* Fallback for older browsers without RGBA-support */
+    background: rgba(204, 204, 204, 0.5);
+    color: black;
+}
+
+
+.find-game {
+    min-height: 100vh;
+}
