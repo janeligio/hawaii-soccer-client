@@ -1,0 +1,36 @@
+.create {
+    min-height: 70vh;
+}
+
+.create-header {
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    font-size: 3em;
+    text-align: center;
+
+    font-weight: 300;
+}
+
+.divider-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.divider {
+    width: 80vw;
+    height: 1px;
+    background: grey;
+}
+
+.create-content {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 1em;
+    padding: 1em;
+}
+
+.create-form {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}

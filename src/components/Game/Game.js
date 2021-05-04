@@ -14,7 +14,7 @@ export default function Game(props) {
             Notes: {notes}
         </p>
 
-        <div>
+        <div className="game-actions">
             <button>Join</button>
         </div>
     </div>);
@@ -30,7 +30,57 @@ export const GAMES_DATA = [
         date: '05-07-2021',
         playerCount: 5,
         notes: 'Bring a ball if you can'
-    }
+    },
+    {
+        dateCreated: '',
+        name: 'Jan',
+        venue: 'Kapiolani',
+        startTime: '11:00am',
+        endTime: '1:00pm',
+        date: '05-07-2021',
+        playerCount: 5,
+        notes: 'Bring a ball if you can'
+    },
+    {
+        dateCreated: '',
+        name: 'Jan',
+        venue: 'Kapiolani',
+        startTime: '11:00am',
+        endTime: '1:00pm',
+        date: '05-07-2021',
+        playerCount: 5,
+        notes: 'Bring a ball if you can'
+    },
+    {
+        dateCreated: '',
+        name: 'Jan',
+        venue: 'Kapiolani',
+        startTime: '11:00am',
+        endTime: '1:00pm',
+        date: '05-07-2021',
+        playerCount: 5,
+        notes: 'Bring a ball if you can'
+    },
+    {
+        dateCreated: '',
+        name: 'Jan',
+        venue: 'Kapiolani',
+        startTime: '11:00am',
+        endTime: '1:00pm',
+        date: '05-07-2021',
+        playerCount: 5,
+        notes: 'Bring a ball if you can'
+    },
+    {
+        dateCreated: '',
+        name: 'Jan',
+        venue: 'Kapiolani',
+        startTime: '11:00am',
+        endTime: '1:00pm',
+        date: '05-07-2021',
+        playerCount: 5,
+        notes: 'Bring a ball if you can'
+    },
 ];
 /*
 const GameSchema = new Schema({

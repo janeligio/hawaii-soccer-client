@@ -19,7 +19,7 @@ export default function Home() {
 
     <div className="find-game" id="find">
         <h1>Soccer games goin' on:</h1>
-        <div>
+        <div className="game-container">
             {GAMES_DATA.map(game => {
                 return (<Game
                     dateCreated={game.dateCreated}
