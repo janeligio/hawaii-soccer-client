@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 import moment from 'moment';
 import axios from 'axios';
+import { useHistory } from 'react-router-dom';
 import DateTime from 'react-datetime';
 import VenuePicker from '../VenuePicker/VenuePicker';
 import TimePicker from "../Picker/TimePicker";
-import SelectedVenue from '../SelectedVenue/SelectedVenue';
 import "react-datetime/css/react-datetime.css";
 import './Create.css';
 
 export default function Create() {
+    const history = useHistory();
     const NOTES_MAX_CHAR_COUNT = 150;
     const [ venues, setVenues ] = useState([]);
 
@@ -62,6 +63,31 @@ export default function Create() {
 
     function handleSubmit(event) {
         event.preventDefault();
+        console.log( moment(startTime, "h:mmA").format("h:mma"));
+        const formattedStartTime = moment(startTime, "h:mmA").format("h:mma");
+        const formattedEndTime = moment(endTime, "h:mmA").format("h:mma");
+        const requestBody = {
+            name, 
+            email, 
+            venue: selectedVenue._id, 
+            date: date.format(), 
+            startTime: formattedStartTime, 
+            endTime: formattedEndTime, 
+            playerCount: players, 
+            notes
+        }
+        console.log(requestBody);
+        axios({
+            url: process.env.REACT_APP_SERVER_API + '/games/create',
+            method: 'post',
+            data: requestBody,
+            headers: {'Access-Control-Allow-Origin': '*'}
+        }).then(() => {
+            // Redirect to home
+            history.push("/");
+        }).catch(err => {
+            console.error(err);
+        })
         console.log('submitted');
     }
 
@@ -121,7 +147,6 @@ export default function Create() {
                                 return <option key={Math.random()} value={opt}>{opt}</option>;
                             })}
                         </select>
-                        {/* <input type="number" min="1" max="30" value={players} onChange={e => console.log(e.target.value)}/> */}
                     </div>
                     <div>
                         <label>Notes</label>
@@ -158,17 +183,4 @@ export default function Create() {
             </main>
         </div>
     );
-}
-
-function parseHoursField(venue) {
-    if(venue) {
-        const hours = venue.hours.split('-');
-        
-        const start = moment(hours[0], "h:mmA");
-        const end = moment(hours[1], "h:mmA");
-
-        console.log(start, end);
-    } else {
-
-    }
 }

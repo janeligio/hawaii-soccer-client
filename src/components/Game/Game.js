@@ -1,6 +1,6 @@
 
 export default function Game(props) {
-    const { dateCreated, name, venue, startTime, endTime, date, playerCount, notes } = props;
+    const { name, venue, startTime, endTime, date, playerCount, notes } = props;
 
     return (
     <div className="game">

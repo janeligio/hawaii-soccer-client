@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Venue from '../Venue/Venue';
 import './VenuePicker.css';
 
