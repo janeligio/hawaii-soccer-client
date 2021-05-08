@@ -6,17 +6,21 @@ import './Create.css';
 
 export default function Create() {
     const NOTES_MAX_CHAR_COUNT = 150;
-    const yesterday = moment().subtract(1, "day");
     const [ notes, setNotes ] = useState();
     const [ chars, setChars ] = useState(NOTES_MAX_CHAR_COUNT);
     const [ date, setDate ] = useState(moment());
-
+    
     function isValidDatetHandler(current) {
-        return current.isAfter(yesterday);
+        const validRange = [ 
+            moment().subtract(1, "day"),
+            moment().add(28, "day"),
+        ];
+        return current.isAfter(validRange[0]) && current.isBefore(validRange[1]);
     }
 
     function handleDateChange(momentObj) {
         console.log(momentObj);
+        setDate(momentObj);
     }
     return (
         <div className="create">
@@ -43,8 +47,13 @@ export default function Create() {
                         <input type="text"/>
                     </div>
                     <div>
+                        <p>Scheduled Date: {moment(date).format("dddd, MMM D YYYY")}</p>
                         <label>Date</label>
-                        <DateTime timeFormat={false} input={false} isValidDate={isValidDatetHandler}
+                        <DateTime 
+                            timeFormat={false} 
+                            value={date}
+                            input={false} 
+                            isValidDate={isValidDatetHandler}
                             onChange={handleDateChange}/>
                         
                     </div>
