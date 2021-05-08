@@ -56,6 +56,7 @@ input {
     border-bottom: 1px solid black;
 }
 
+
 textarea {
     resize: vertical;
     width: 300px;
@@ -72,9 +73,16 @@ textarea {
     width: 300px;
 }
 
-.create-button > button {
+.create-button > input {
     width: 100%;
+    margin-top: 1em;
     margin-bottom: 1em;
+    border: none;
+}
+
+.create-button > input:hover {
+    cursor: pointer;
+    background: grey;
 }
 
 .chars-remaining {
