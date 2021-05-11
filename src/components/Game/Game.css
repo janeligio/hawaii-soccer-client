@@ -1,0 +1,38 @@
+.join-game-form-container {
+    width: 75%;
+}
+
+
+.join-game-form-submit, .join-game-form-cancel {
+    width: 100%;
+    height: 30px;
+    border: none;
+}
+
+.join-game-form-submit:hover, .join-game-form-cancel:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.join-game-form-submit {
+    background: #008CBA;
+    color: white;
+}
+
+.join-game-form-cancel {
+    background: #f44336;
+    color: white;
+}
+
+.join-game-form-submit:hover {
+}
+
+.join-game-form-cancel:hover {
+}
+
+.join-game-section {
+    width: 50%;
+}
+.join-game-section > input {
+    width: 80%;
+}
