@@ -22,7 +22,7 @@ export default function VenuePicker(props) {
                     <div className="venues">
                         <button className="venuepicker-close" onClick={toggleModal}>Done</button>
                         {venues.length > 0 && venues.map(venue => {
-                            return <Venue venue={venue} selected={(venue.name === selectedVenueName)} setSelectedVenue={setSelectedVenue}/>;
+                            return <Venue key={venue._id} venue={venue} selected={(venue.name === selectedVenueName)} setSelectedVenue={setSelectedVenue}/>;
                         })}
                     </div>
                 </div>

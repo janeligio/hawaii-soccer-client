@@ -52,7 +52,6 @@ export default function Create() {
 
 
     function handleDateChange(momentObj) {
-        console.log(momentObj);
         setDate(momentObj);
     }
 
@@ -63,7 +62,6 @@ export default function Create() {
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log( moment(startTime, "h:mmA").format("h:mma"));
         const formattedStartTime = moment(startTime, "h:mmA").format("h:mma");
         const formattedEndTime = moment(endTime, "h:mmA").format("h:mma");
         const requestBody = {
@@ -76,7 +74,6 @@ export default function Create() {
             playerCount: players, 
             notes
         }
-        console.log(requestBody);
         axios({
             url: process.env.REACT_APP_SERVER_API + '/games/create',
             method: 'post',
@@ -116,9 +113,7 @@ export default function Create() {
                         <input type="text" value={!!selectedVenue && selectedVenue.name} readOnly/>
                     </div>
                     <div>
-                        {/* <SelectedVenue venue={selectedVenue}/> */}
                         <VenuePicker venues={venues} selectedVenue={selectedVenue} setSelectedVenue={setSelectedVenue}/>
-
                     </div>
                     <div>
                         <p>Scheduled Date: {moment(date).format("dddd, MMM D YYYY")}</p>
@@ -126,7 +121,7 @@ export default function Create() {
                             <br/>
                         <DateTime 
                             timeFormat={false} 
-                            value={moment(date).format("dddd, MMM D YYYY")}
+                            value={date}
                             input={true} 
                             isValidDate={isValidDatetHandler}
                             onChange={handleDateChange}
