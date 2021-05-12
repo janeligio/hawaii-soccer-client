@@ -1,4 +1,56 @@
-footer {
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+.footer {
     background: #23282c;
     height: 30vh;
+}
+
+.footer-main {
+    display: flex;
+    justify-content: center;
+    box-sizing: content-box;
+    padding-top: 1em;
+}
+
+.footer-section {
+    width: 25%;
+    color: white;
+    border-bottom: 1px solid white;
+    font-size: 1em;
+    padding-left: 0.5em;
+}
+
+.personal {
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+
+.personal > div {
+    width: 80%;
+}
+.personal > div > p {
+    text-align: center;
+}
+
+.footer-section-header {
+    font-size: 1.25em;
+}
+
+.footer-section-list {
+    line-height: 1.75em;
+}
+
+.powered-by {
+    display: flex;
+    flex-direction: row;
+}
+.powered-by > li {
+    margin: 0 0.25em;
+}
+
+.footer-link {
+    
 }
