@@ -1,3 +1,32 @@
+.abc {
+  /* This bit sets up the horizontal layout */
+  display:flex;
+  flex-direction:row;
+  
+  /* This bit draws the box around it */
+  border-bottom:1px solid black;
+
+  /* I've used padding so you can see the edges of the elements. */
+  padding:2px;
+}
+.form-input.selected-venue-input {
+  /* Tell the input to use all the available space */
+  flex-grow:2;
+  /* And hide the input's outline, so the form looks like the outline */
+  border:none;
+}
+.venuepicker-open {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 50%;
+    /* background: #007bff; */
+    background: #6c757d;
+}
+.venuepicker-open:hover {
+    background: #f0f0f0;
+}
 .venuepicker-modal {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */

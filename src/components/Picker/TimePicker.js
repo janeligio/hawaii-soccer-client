@@ -62,19 +62,29 @@ export default function TimePicker(props) {
         setEndTime(momentObj.format("h:mmA"));
     }
     return (
-    <div>
-        <label>Start Time</label>
-        <DateTime 
-            dateFormat={false} 
-            input={true} 
-            initialValue={initialStartTime}
-            onChange={handleStartTimeChange} 
-            timeConstraints={startTimeConstraints} />
-        <label>End Time</label>
-        <DateTime dateFormat={false} 
-            input={true} 
-            initialValue={initialEndTime} 
-            timeConstraints={endTimeConstraints}
-            onChange={handleEndTimeChange} />
-    </div>);
+    <>  
+        <div>
+            <label>Start Time
+            <DateTime 
+                inputProps={{className:'form-input time-input'}}
+                dateFormat={false} 
+                input={true} 
+                initialValue={initialStartTime}
+                onChange={handleStartTimeChange} 
+                timeConstraints={startTimeConstraints} />
+            </label>
+        </div>
+    
+        <div>
+            <label>End Time
+            <DateTime 
+                inputProps={{className:'form-input time-input'}}
+                dateFormat={false} 
+                input={true} 
+                initialValue={initialEndTime} 
+                timeConstraints={endTimeConstraints}
+                onChange={handleEndTimeChange} />
+            </label>
+        </div>
+    </>);
 }

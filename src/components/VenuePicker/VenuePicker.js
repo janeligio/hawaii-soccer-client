@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FaEllipsisH } from "react-icons/fa";
 import Venue from '../Venue/Venue';
 import './VenuePicker.css';
 
@@ -15,9 +16,11 @@ export default function VenuePicker(props) {
     const selectedVenueName = selectedVenue ? selectedVenue.name : '';
     return (
         <>  
-            <button  onClick={toggleModal}>Pick Venue</button>
+            <div className="abc">
+               <input className="form-input selected-venue-input" type="text" value={!!selectedVenue && selectedVenue.name} readOnly/>
+               <button className="venuepicker-open" onClick={toggleModal}><FaEllipsisH color="white"/></button>
+            </div>
             <div className="venuepicker-modal" style={{display: `${open ? 'block' : 'none'}`}}>
-                
                 <div className="venuepicker-modal-content">
                     <div className="venues">
                         <button className="venuepicker-close" onClick={toggleModal}>Done</button>
