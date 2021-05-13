@@ -29,6 +29,7 @@ div.fa-angle-right {
 
 .fa-angle {
     margin-left: 0.5em;
+    margin-right: 0.5em;
 }
 
 .game-venue-name {
@@ -43,6 +44,7 @@ div.fa-angle-right {
     border: 1px inset black;
     border-top: 0px;
     padding: 1em 2em 1em 2em;
+    background: var(--light);
 }
 
 .game-organizer {
