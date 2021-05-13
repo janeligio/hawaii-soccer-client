@@ -1,5 +1,30 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
+/* CSS HEX */
+:root {
+    --pewter-blue: #8eb1c7ff;
+    --raisin-black: #212738ff;
+    --pistachio: #95bf74ff;
+    --persian-orange: #e08e45ff;
+    --rosy-brown: #cb958eff;
+
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --danger: #dc3545;
+    --warning: #ffc107;
+    --info: #17a2b8;
+    --light: #f8f9fa;
+    --dark: #343a40;
+}
+
+/* CSS HSL */
+/* --pewter-blue: hsla(203, 34%, 67%, 1);
+--raisin-black: hsla(224, 26%, 17%, 1);
+--pistachio: hsla(94, 37%, 60%, 1);
+--persian-orange: hsla(28, 71%, 57%, 1);
+--rosy-brown: hsla(7, 37%, 68%, 1); */
+
 body {
     font-family: 'Noto Sans JP', sans-serif;
     margin: 0;

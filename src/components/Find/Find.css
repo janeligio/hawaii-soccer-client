@@ -8,24 +8,9 @@
 .game-container {
     box-sizing: content-box;
     display: flex;
+    align-items: flex-start;
     flex-wrap: wrap;
     width: 100%;
     /* flex-direction: column; */
 }
 
-.game {
-    box-sizing: content-box;
-    padding-top: 0;
-    border: 1px solid black;
-    border-radius: 5px;
-    width: 45%;
-
-    /* margin: 0.25em;
-    padding: 0.5em; */
-}
-
-.game-actions {
-    display:flex;
-    align-items: center;
-    justify-content: right;
-}

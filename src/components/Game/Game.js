@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import moment from 'moment';
+import { FaAngleRight, FaAngleDown, FaCheckCircle } from "react-icons/fa";
 import './Game.css';
 
 export default function Game(props) {
@@ -8,7 +9,9 @@ export default function Game(props) {
 
     const [ venue, setVenue ] = useState({name: "Unknown Venue"});
     const [ showForm, setShowForm ] = useState(false);
+    const [ showContent, setShowContent ] = useState(false);
     const [ responseMessage, setResponseMesssage ] = useState('');
+    const [ showReponse, setShowReponse ] = useState(false);
 
     useEffect(() => {
         const endpoint = process.env.REACT_APP_SERVER_API + '/venues/' + venueId;
@@ -35,6 +38,7 @@ export default function Game(props) {
             headers: {'Access-Control-Allow-Origin': '*'},
         }).then(response => {
             setResponseMesssage(response.data);
+            setShowReponse(true);
             if(showForm) {
                 setShowForm(false);
             }
@@ -45,28 +49,49 @@ export default function Game(props) {
 
     return (
     <div className="game">
-        <h4>{venue.name}</h4>
-        <p>{venue.address}</p>
-        <p>Hours: {venue.hours}</p>
-        <p>Organizer: {name}</p>
-        <p>
-            <small>{moment(date).format("MMM D, YYYY")} {startTime} {endTime && `- ${endTime}`}</small>
-            <br/>
-            <span>Players: {playerCount}</span>
-            <br/>
-            Notes: {notes}
-        </p>
-
-        <div className="game-actions">
-            { !showForm && <button onClick={() => setShowForm(!showForm)}>Join</button>}
-            { showForm && <JoinGame joinGame={joinGame} gameId={id} closeForm={() => setShowForm(false)}/>}
+        <div onClick={() => setShowContent(!showContent)} className="game-header">
+            <div className="fa-angle-right">
+                { !showContent && <FaAngleRight size="2em" className="fa-angle"/> }
+                { showContent && <FaAngleDown size="2em" className="fa-angle"/> }
+            </div>
+            <div>
+                <h3 className="game-venue-name"><strong>@</strong>{venue.name}</h3>
+                <p className="game-date"><small>{moment(date).format("dddd, MMM D")} from {startTime} {endTime && `to ${endTime}`}</small></p>
+            </div>
+                <p className="game-playercount">{playerCount} people going</p>                    
         </div>
+        {   showContent && 
+                <div className="game-content">
+                    <h3 className="game-organizer">Organizer: {name}</h3>
 
-        <div>
-            <p>
-                {responseMessage}
-            </p>
-        </div>
+                    <h5 className="game-notes-title">From {name}: </h5>
+                    <p className="game-notes">
+                        "{notes}"
+                    </p>
+
+                    <p className="venue-address-title">Venue Address</p>
+                    
+                    <div className="game-address-container">
+                        <p className="game-address">{venue.address}</p>
+                        <button className="copy-address">Copy</button>
+                    </div>
+
+                    <div className="game-actions">
+                        {!showForm && <button className="game-actions-join" onClick={() => setShowForm(!showForm)}>Join</button>}
+                    </div>
+                    {showForm && 
+                        <JoinGame joinGame={joinGame} gameId={id} closeForm={() => setShowForm(false)} />}
+                    { showReponse &&
+                    <div onClick={() => setShowReponse(false)} className="game-response-container">
+                        <div className="game-response-check">
+                            <FaCheckCircle size="1.5em" color="white" />
+                        </div>
+                        <p className="game-response-message" style={{color: 'var(--light)'}}>
+                            {responseMessage} 
+                        </p>
+                    </div>}
+                </div>
+        }
     </div>);
 }
 
@@ -89,29 +114,30 @@ function JoinGame(props) {
     return (
         <div className="join-game-form-container">
             <form className="join-game-form" onSubmit={handleSubmit}>
-                <div>
-                    <label className="join-game-section">Name
-                        <input type="text" required value={name} placeholder="Sergio"
+                <div className="join-game-section">
+                    <label >Name
+                        <input className="join-game-input" type="text" required value={name} placeholder="Sergio"
                             onChange={(e) => setName(e.target.value)}/>
                     </label>
                 </div>
-                <div>
-                    <label className="join-game-section">Email
-                        <input type="email" required value={email} placeholder="johndoe@gmail.com"
+                <div className="join-game-section">
+                    <label >Email
+                        <input className="join-game-input" type="email" required value={email} placeholder="johndoe@gmail.com"
                             onChange={(e) => setEmail(e.target.value)}/>
                     </label>
                 </div>
-                <div>
-                    <label className="join-game-section">No. Players {` `}
-                        <select value={playerCount} onChange={e => setPlayerCount(e.target.value)}>
+                <div className="join-game-section">
+                    <label>No. Players {` `} <br/>
+                        <select className="join-game-players" value={playerCount} onChange={e => setPlayerCount(e.target.value)}>
                             {playersSelectOptions.map(opt => {
-                                return <option key={Math.random()} value={opt}>{opt}</option>;
+                                return <option key={Math.random()} value={opt}>{opt} {opt===1 && ' (only you)'}</option>;
                             })}
                         </select>
                     </label>
                 </div>
-                <div>
-                    <input className="join-game-form-submit" type="submit" value="Create" />
+
+                <div className="join-game-form-submit-container">
+                    <input className="join-game-form-submit" type="submit" value="Join" />
                     <button onClick={closeForm} className="join-game-form-cancel">Cancel</button>
                 </div>
             </form>
