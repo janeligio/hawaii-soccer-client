@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import Header from '../Header/Header';
 import Game from '../Game/Game';
 import './Find.css';
 
@@ -21,6 +22,7 @@ export default function Find() {
 
     return (
         <>
+            <Header/>
             <div className="find-game" id="find">
                 <h1>Soccer games goin' on:</h1>
                 <div className="game-container">

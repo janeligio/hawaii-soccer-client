@@ -1,0 +1,52 @@
+.app-header {
+    box-sizing: content-box;
+    background: #202020;
+    height: 4rem;
+    padding: 0 2rem;
+    -webkit-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    -moz-box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+    box-shadow: 0 3px 5px rgba(57, 63, 72, 0.3);
+
+    display: flex;
+    align-items: center;
+}
+
+.app-ul {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: left;
+}
+
+.app-li {
+    margin: 1rem 0.5rem;
+}
+
+.app-link {
+    text-decoration: none;
+    color: white;
+    border: none;
+    font-size: 1rem;
+
+    transition: color 0.25s;
+}
+
+.app-link.active-link::after {
+    content: '';
+    width: 100%;
+    background: #fff;
+    height: 1px;
+    display: block;
+    left: 0; right: 0;
+    margin: 0 auto;
+    bottom: -0.75rem;
+}
+.app-link:hover {
+    color: #808080;
+}
+
+.header-home {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+

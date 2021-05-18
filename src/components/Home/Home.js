@@ -5,7 +5,7 @@ export default function Home() {
 
     return (
     <>
-    <header>
+    <header className="home">
         <div className="header content">
             <h1 className="header title">Hawaii Soccer Five-a-Side</h1>
             <div className="header actions">

@@ -3,6 +3,7 @@ import moment from 'moment';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import DateTime from 'react-datetime';
+import Header from '../Header/Header';
 import VenuePicker from '../VenuePicker/VenuePicker';
 import TimePicker from "../Picker/TimePicker";
 import "react-datetime/css/react-datetime.css";
@@ -88,6 +89,8 @@ export default function Create() {
     }
 
     return (
+        <>
+        <Header/>
         <div className="create">
             <h1 className="create-header">Organize a Game</h1>
             <div className="divider-container">
@@ -160,6 +163,7 @@ export default function Create() {
                 </form>
             </main>
         </div>
+        </>
     );
 }
 
