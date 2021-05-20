@@ -7,7 +7,7 @@ export default function Home() {
     <>
     <header className="home">
         <div className="header content">
-            <h1 className="header title">Hawaii Soccer Five-a-Side</h1>
+            <h1 className="header title">Hawaii Soccer Five-a-Side (test)</h1>
             <div className="header actions">
                 <Link className="header link" to="/create"> 
                     Organize a game
